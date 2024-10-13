@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing Test</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Typing Test</h1>
+      <p id="textToType">{{.TextToType}}</p>
+      <br />
+      <form method="POST" id="typingForm" action="/submit">
+        <textarea
+          name="userInput"
+          placeholder="Start typing..."
+          required
+          onkeydown="if(event.key === 'Enter'){ this.form.submit(); return false; }"
+        ></textarea>
+        <input type="hidden" name="textToType" value="{{.TextToType}}" />
+      </form>
+      <div class="result">
+        {{if .UserInput}}
+        <h2>Your Results:</h2>
+        <p>Input: {{.UserInput}}</p>
+        <p>Accuracy: {{.Accuracy}}%</p>
+        <p>WPM: {{.WPM}}</p>
+        <br />
+        <button onclick="window.location.href='/'">Restart Test</button>
+        {{end}}
+      </div>
+    </div>
+  </body>
+</html>
