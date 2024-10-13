@@ -30,3 +30,4 @@ I was trying to learn Golang, so I made this typing test application using Golan
    ```bash
    go run main.go
 3. Open `http://localhost:8080` in your browser.
+4. Start typing in the input field and press the `enter` or `return` key to see the results.
